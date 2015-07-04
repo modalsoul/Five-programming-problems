@@ -5,21 +5,21 @@ package jp.modal.soul.shikkaku
  */
 object Problem5 {
   val numberReg = """([0-9]+)(.*)""".r
-  val plusReg = """([0-9]+)([\+])(.*)""".r
-  val minusReg = """([0-9]+)([\-])(.*)""".r
+  val plusReg = """([\+])([0-9]+)(.*)""".r
+  val minusReg = """([\-])([0-9]+)(.*)""".r
   
   def calc(expr:String) = {
     def recur(str:String, acc:Seq[Int]):Seq[Int] = {
       str match {
         case minusReg(x, xs, xss) =>
-          recur(xss, -(x.reverse.toInt) +: acc)
+          recur(xss, -xs.toInt +: acc)
         case plusReg(x, xs, xss) =>
-          recur(xss, (x.reverse.toInt) +: acc)
+          recur(xss, x.toInt +: acc)
         case numberReg(x,xs) =>
-          x.reverse.toInt+:acc
+          x.toInt+:acc
       }
     }
-    recur(expr.reverse, Nil).sum
+    recur(expr, Nil).sum
   }
   
   def find = {
