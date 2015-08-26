@@ -21,9 +21,7 @@ object Problem5 {
 
   def find = {
     var comb = Seq("1")
-    for(n <- 2 to 9) {
-      comb = comb.flatMap{c => Seq(c+n, s"$c+$n", s"$c-$n")}
-    }
+    for(n <- 2 to 9) comb = comb.flatMap{c => Seq(c+n, s"$c+$n", s"$c-$n")}
     comb.filter(calc(_) == 100)
   }
 }
