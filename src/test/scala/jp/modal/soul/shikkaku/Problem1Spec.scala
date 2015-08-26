@@ -9,14 +9,14 @@ class Problem1Spec extends FlatSpec with Matchers {
   val expected = 6
   
   "sum using while" must "success" in {
-    Problem1.sumByWhile(list) shouldBe(expected)
+    Problem1.sumByWhile(list:_*) shouldBe(expected)
   }
 
   "sum using for" must "success" in {
-    Problem1.sumByFor(list) shouldBe(expected)
+    Problem1.sumByFor(list:_*) shouldBe(expected)
   }
 
   "sum using rec" must "success" in {
-    Problem1.sumByRec(list) shouldBe(expected)
+    Problem1.sumByRec(list:_*) shouldBe(expected)
   }
 }

@@ -9,6 +9,6 @@ class Problem2Spec extends FlatSpec with Matchers {
   val two = Seq(1, 2, 3)
   
   "connect mutually" must "success" in {
-    Problem2.mutuallyList(one, two) shouldBe(Seq("a",1,"b",2,"c",3))
+    Problem2.mutuallyList(one:_*)(two:_*) shouldBe(Seq("a",1,"b",2,"c",3))
   }
 }
